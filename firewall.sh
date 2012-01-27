@@ -7,18 +7,18 @@ iptables --policy FORWARD DROP
 iptables --policy OUTPUT DROP
 
 #Allow DNS traffic on all adaptors - DONE
-iptables --append OUTPUT --protocol udp --dport 53 --sport 1024:65535 -j ACCEPT
-iptables --append INPUT --protocol udp --sport 53 --dport 1024:65535 -j ACCEPT
+iptables --append OUTPUT -p udp --dport 53 --sport 1024:65535 -j ACCEPT
+iptables --append INPUT -p udp --sport 53 --dport 1024:65535 -j ACCEPT
 
 #Allow DHCP traffic on all adaptors - DONE
-iptables --append INPUT -protocol udp --dport 67:68 --sport 67:68 -j ACCEPT
+iptables --append INPUT -p udp --dport 67:68 --sport 67:68 -j ACCEPT
 
 #Permit inbound and outbound ssh - DONE
-iptables --append INPUT --protocol tcp --dport 22 -j ACCEPT
-iptables --append OUTPUT --protocol tcp --dport 22 -j ACCEPT
+iptables --append INPUT -p tcp --dport 22 -j ACCEPT
+iptables --append OUTPUT -p tcp --dport 22 -j ACCEPT
 
 #Permit inbound and outbound www
-iptables -append INPUT --protocol tcp --dport 80 -j ACCEPT
+iptables -append INPUT -p tcp --dport 80 -j ACCEPT
 
 #Drop inbound traffic to port 80 from ports less than 1024
 
