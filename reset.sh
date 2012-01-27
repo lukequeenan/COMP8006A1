@@ -1,5 +1,6 @@
 #Clear all filters
-iptables --flush --delete-chain
+iptables --flush 
+iptables --delete-chain
 
 #Set everything to allow again
 iptables --policy INPUT ACCEPT
