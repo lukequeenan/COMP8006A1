@@ -19,8 +19,10 @@ iptables --append OUTPUT --protocol tcp --sport 22 -j ACCEPT
 
 #Permit inbound and outbound www
 iptables --append INPUT --protocol tcp --dport 80 -j ACCEPT
+iptables --append OUTPUT --protocol tcp --sport 80 -j ACCEPT
 
 #Drop inbound traffic to port 80 from ports less than 1024
+iptables --append INPUT --protocol tcp --dport 80 --sport 0:1023 -j DROP
 
 #Drop all incoming packets from reserved port 0 as well as inbound traffic to
 #port 0
