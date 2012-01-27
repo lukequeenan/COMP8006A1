@@ -18,8 +18,8 @@ iptables --append INPUT --protocol tcp --dport 22 -j ACCEPT
 iptables --append OUTPUT --protocol tcp --sport 22 -j ACCEPT
 
 #Permit inbound and outbound http and https
-iptables --append INPUT --protocol tcp --sports 80,443 -j ACCEPT
-iptables --append OUTPUT --protocol tcp --dports 80,443 -j ACCEPT
+iptables --append INPUT --protocol tcp -m multiport --sports 80,443 -j ACCEPT
+iptables --append OUTPUT --protocol tcp -m multiport --dports 80,443 -j ACCEPT
 
 #Drop inbound traffic to port 80 from ports less than 1024
 iptables --append INPUT --protocol tcp --dport 80 --sport 0:1023 -j DROP
