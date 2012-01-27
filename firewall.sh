@@ -18,7 +18,7 @@ iptables --append INPUT -p tcp --dport 22 -j ACCEPT
 iptables --append OUTPUT -p tcp --dport 22 -j ACCEPT
 
 #Permit inbound and outbound www
-iptables -append INPUT -p tcp --dport 80 -j ACCEPT
+iptables --append INPUT -p tcp --dport 80 -j ACCEPT
 
 #Drop inbound traffic to port 80 from ports less than 1024
 
