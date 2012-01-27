@@ -12,6 +12,7 @@ iptables --append INPUT --protocol udp --sport 53 --dport 1024:65535 -j ACCEPT
 
 #Allow DHCP traffic on all adaptors - DONE
 iptables --append INPUT --protocol udp --dport 67:68 --sport 67:68 -j ACCEPT
+iptables --append OUTPUT --protocol udp --dport 67:68 --sport 67:68 -j ACCEPT
 
 #Permit inbound and outbound ssh - DONE
 iptables --append INPUT --protocol tcp --dport 22 -j ACCEPT
