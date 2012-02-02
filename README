@@ -1,4 +1,14 @@
 Author:
 	Luke Queenan
 
-A basic Linux firewall using iptables.
+Instructions:
+	To enable the firewall, run the reset.sh script followed by the firewall.sh script. An example usage is below:
+
+	sh reset.sh
+	sh firewall.sh
+
+	To disable the firewall, run the reset.sh script by itself.
+
+About:
+	A basic Linux firewall using iptables.
+	The firewall has the following rules:		default policy to drop		permit inbound and outbound ssh packets		permit inbound and outbound www packets		drop packets destined to port 80 from ports less than 1024		drop all packets to and from port 0		keep track of all ssh and www traffic using custom chains		allow DNS and DHCP traffic through
